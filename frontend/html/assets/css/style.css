@@ -1,0 +1,139 @@
+body {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  padding: 1%;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.25em;
+}
+
+.canvasDiv {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+}
+
+
+#canvasLogo {
+  position: absolute;
+  left: .5rem;
+  top: .5rem;
+  z-index: 2;
+  width: 22.5%;
+  max-width: 12em;
+}
+
+#searchDiv {
+  position: absolute;
+  right: .5rem;
+  top: .5rem;
+  z-index: 2;
+  border: .1rem solid #000;
+  background-color: #fff;
+  border-radius: .5em;
+  width: 70%;
+  max-width: 25em;
+  max-height: calc(100% - 1rem);
+  overflow-y: scroll;
+}
+
+#searchDiv > div:first-child {
+  display: flex;
+  flex-direction: row;
+  padding-inline: .25rem;
+}
+
+#searchInput {
+  padding-left: .25rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: inherit;
+  font-size: inherit;
+}
+
+#searchInput::placeholder {
+  font: inherit;
+}
+
+#searchInput:focus {
+  outline: none;
+}
+
+#suggestionList {
+  padding: 0;
+  margin: 0;
+  padding-top: .1rem;
+}
+
+#suggestionList div {
+  z-index: 2;
+  cursor: pointer;
+  width: calc(100% + 0.1rem);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: .25rem;
+  border: .1rem solid #000;
+  margin: -.1rem;
+  border-radius: .5rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+#suggestionList div:hover {
+  border: .15rem solid #000;
+}
+
+#zoomIn {
+  position: absolute;
+  left: .25rem;
+  bottom: 3rem;
+  cursor: pointer;
+}
+
+#zoomOut {
+position: absolute;
+  left: .25rem;
+  bottom: 0;
+  cursor: pointer;
+}
+#zoomIn svg, #zoomOut svg{
+  width: 3rem;
+  height: 3rem;
+  fill: #fff;
+}
+
+.treeView {
+  display: block;
+  border: .1rem solid #000;
+}
+
+h3 {
+  margin-top: .5rem;
+  margin-bottom: .25rem;
+  border-bottom: .1rem solid #000;
+} 
+
+#itemList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-inline: -0.25rem;
+}
+
+#itemList div {
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: .25rem;
+  margin: .25rem;
+  border: .1rem solid #000;
+  border-radius: .5rem;
+}
+
+#itemList div:hover {
+  border: .15rem solid #000;
+}
+

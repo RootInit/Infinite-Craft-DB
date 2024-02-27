@@ -1,0 +1,21 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "description": "Site Javascript for Infinity-Craft-DB",
+  "main": "site.js",
+  "scripts": {
+    "test": "echo 'no tests'",
+    "build": "webpack"
+  },
+  "author": "RootInit",
+  "license": "AGPL",
+  "devDependencies": {
+    "@types/fabric": "^5.3.7",
+    "fabric": "^5.3.0",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  }
+}
