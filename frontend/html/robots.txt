@@ -1,0 +1,5 @@
+Sitemap: https://init.cx/sitemap.xml
+
+User-agent: *
+Disallow: /api/
+Allow: /

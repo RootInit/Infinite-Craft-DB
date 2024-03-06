@@ -1,3 +1,6 @@
+# SQLITE DB GITIGNORE
+*.db
+
 # GOLANG GITIGNORE
 # Binaries for programs and plugins
 main

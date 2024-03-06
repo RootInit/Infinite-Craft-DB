@@ -1,4 +1,4 @@
-module init.cx/main
+module cx.init.infinitecraft/main
 
 go 1.21
 
