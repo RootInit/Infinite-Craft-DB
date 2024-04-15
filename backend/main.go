@@ -22,7 +22,7 @@ func main() {
 	}
 
 	// Initialize the database
-  log.Println("Loading database: ", *dbPathPtr)
+	log.Println("Loading database: ", *dbPathPtr)
 	db, err := InitializeDB(*dbPathPtr)
 	if err != nil {
 		log.Fatal("Failed to load database: ", err)
@@ -32,18 +32,6 @@ func main() {
 	api, err := InitializeAPI(db)
 	if err != nil {
 		log.Fatal("Failed to initialize API", err)
-	}
-	// Ratelimiter
-	var limiter = NewIPRateLimiter(1, 10)
-	rateLimit := func(next http.HandlerFunc) http.HandlerFunc {
-		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			limiter := limiter.GetLimiter(r.RemoteAddr)
-			if !limiter.Allow() {
-				http.Error(w, http.StatusText(http.StatusTooManyRequests), http.StatusTooManyRequests)
-				return
-			}
-			next.ServeHTTP(w, r)
-		})
 	}
 	// Create routes
 	mux := http.NewServeMux()
@@ -63,10 +51,10 @@ func main() {
 			}
 		})
 	// Serve API paths
-	mux.HandleFunc("/api/getItemRecipe", rateLimit(api.getItemRecipe))
-	mux.HandleFunc("/api/getNextItems", rateLimit(api.getNextItems))
-	mux.HandleFunc("/api/getTotalItems", rateLimit(api.getTotalItems))
-	mux.HandleFunc("/api/getItemsFuzzy", rateLimit(api.getItemsFuzzy))
+	mux.HandleFunc("/api/getItemRecipe", api.getItemRecipe)
+	mux.HandleFunc("/api/getNextItems", api.getNextItems)
+	mux.HandleFunc("/api/getTotalItems", api.getTotalItems)
+	mux.HandleFunc("/api/getItemsFuzzy", api.getItemsFuzzy)
 	// Start the server
 	log.Println("Running webserver on ", *addressPtr)
 	err = http.ListenAndServe(*addressPtr, mux)

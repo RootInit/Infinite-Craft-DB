@@ -3,7 +3,7 @@
 
 # GOLANG GITIGNORE
 # Binaries for programs and plugins
-main
+webserver
 *.exe
 *.exe~
 *.dll
